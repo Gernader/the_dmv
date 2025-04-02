@@ -12,6 +12,5 @@ class Facility
   def add_service(service)
     @services.append(service)
   end
-
   
 end

@@ -6,11 +6,11 @@ class Dmv
   end
 
   def add_facility(facility)
-    @facilities << facility
+    @facilities.push(facility)
   end
 
   def facilities_offering_service(service)
-    @facilities.find do |facility|
+    @facilities.find_all do |facility|
       facility.services.include?(service)
     end
   end
