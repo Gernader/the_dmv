@@ -34,18 +34,7 @@ class Facility
     end
   end
 
-  # def plate_type
-  #   if @vehicle.electric_vehicle? == true
-  #     :ev
-  #   elsif @vehicle.antique == true
-  #     :antique
-  #   else
-  #     :regular
-  #   end
-  # end
-
-
-
+  
   
 
 end
