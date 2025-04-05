@@ -36,10 +36,10 @@ This is the starter repo for the BE Mod1 DMV project.
 
 ## getting a license
 
-- facility.administer_written_test(arg)
-    - check for service/age/permit
-- facility.administer_road_test(arg)
-    - check for written test/service
-- facility.renew_drivers_license(arg)
-    - renew if licence is true
+- facility.administer_written_test(arg) X
+    - check for service/age/permit      X
+- facility.administer_road_test(arg)    X
+    - check for written test/service    X
+- facility.renew_drivers_license(arg)   X
+    - renew if licence is true          X
 

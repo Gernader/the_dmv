@@ -1,5 +1,6 @@
 require 'date'
 
+
 class Vehicle
   attr_reader :vin,
               :year,
@@ -39,4 +40,5 @@ class Vehicle
     end
   end
 
+  
 end
