@@ -1,7 +1,12 @@
 require 'date'
+require './lib/dmv_data_service'
+require 'pry'
+
+
 class Facility
   attr_reader :name, 
-              :address, 
+              :address,
+              :address1,
               :phone, 
               :services, 
               :registered_vehicles,
@@ -10,9 +15,10 @@ class Facility
   def initialize(attributes)
     @name = attributes[:name]
     @address = attributes[:address]
+    @address1 = attributes[:address] || []
     @phone = attributes[:phone]
     @services = attributes[:services] || []
-    @registered_vehicles = attributes[:registered_vehicles] || []
+    @registered_vehicles = attributes[:registered_vehicles] || [nil]
     @collected_fees = attributes[:collected_fees] || 0
   end
 
@@ -35,7 +41,7 @@ class Facility
   end
 
   def administer_written_test(registrant)
-    # binding.pry
+    
     if registrant.permit == true && (registrant.age >= 16 && @services.include?("Written Test")) 
       registrant.license_data[:written] = true
     end
@@ -53,7 +59,22 @@ class Facility
     end   
   end
 
+  def co_facilities(details)
+    binding.pry
+    details.map do |detail|
+      Facility.new(
+        name: detail[:dmv_office],
+        address: detail[:address_li],
+        address1: detail[:adress__1],
+        phone: detail[:phone],
+        services: detail[:services_p] || [],
+        registered_vehicles: detail[:registered_vehicles] || [],
+        collected_fees: 0
+        
   
-  
+
+      )
+    end
+  end
 
 end
