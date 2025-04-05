@@ -34,6 +34,22 @@ class Facility
     end
   end
 
+  def administer_written_test(registrant)
+    # binding.pry
+    if registrant.permit == true && (registrant.age >= 16 && @services.include?("Written Test")) 
+      registrant.license_data[:written] = true
+
+    end
+
+  end
+
+  def administer_road_test(registrant)
+
+    if registrant.license_data[:written] == true && @services.include?("Road Test")
+      registrant.license_data[:license] = true
+    end
+  end
+
   
   
 
