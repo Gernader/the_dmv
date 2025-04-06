@@ -6,7 +6,7 @@ require 'pry'
 class Facility
   attr_reader :name, 
               :address,
-              :address1,
+              :address_1,
               :phone, 
               :services, 
               :registered_vehicles,
@@ -15,7 +15,7 @@ class Facility
   def initialize(attributes)
     @name = attributes[:name]
     @address = attributes[:address]
-    @address1 = attributes[:address] || []
+    @address_1 = attributes[:address_1] || []
     @phone = attributes[:phone]
     @services = attributes[:services] || []
     @registered_vehicles = attributes[:registered_vehicles] || [nil]
@@ -59,22 +59,33 @@ class Facility
     end   
   end
 
-  def co_facilities(details)
-    binding.pry
-    details.map do |detail|
-      Facility.new(
-        name: detail[:dmv_office],
-        address: detail[:address_li],
-        address1: detail[:adress__1],
-        phone: detail[:phone],
-        services: detail[:services_p] || [],
-        registered_vehicles: detail[:registered_vehicles] || [],
-        collected_fees: 0
-        
-  
+  # def co_facilities(details)
+    
+  #   details.map do |detail|
+  #     Facility.new(
+  #       name: detail[:dmv_office],
+  #       address: detail[:address_li],
+  #       address_1: detail[:adress__1],
+  #       phone: detail[:phone],
+  #       services: detail[:services_p] || [],
+  #       registered_vehicles: detail[:registered_vehicles] || [],
+  #       collected_fees: 0
+  #     )
+  #   end
+  # end
 
-      )
-    end
-  end
+  # def ny_facilities(details)
+  #   details.map do |detail|
+  #     Facility.new(
+  #       name: detail[:office_name],
+  #       address: detail[:street_addess_line_1],
+  #       address1: detail[:city],
+  #       phone: detail[:phone],
+  #       services: [],
+  #       registered_vehicles: [],
+  #       collected_fees: 0
+  #     )
+  #   end
+  # end
 
 end

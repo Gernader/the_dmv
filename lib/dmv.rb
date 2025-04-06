@@ -19,18 +19,38 @@ class Dmv
   end
 
   def co_facilities(details)
-    details.map do |detail|
-      Facility.new(
+    details.each do |detail|
+      facility = Facility.new(
         name: detail[:dmv_office],
         address: detail[:address_li],
-        address1: detail[:address__1],
+        address_1: detail[:address__1],
         phone: detail[:phone],
         services: detail[:services_p] || [],
         registered_vehicles: detail[:registered_vehicles] || [],
         collected_fees: 0
-  
+        
+      )
+      @facilities << facility
+    end
+  end
+
+  def ny_facilities(details)
+    details.each do |detail|
+      facility = Facility.new(
+        name: detail[:office_name],
+        address: detail[:street_address_line_1],        
+        phone: detail[:public_phone_number] || nil,        
+        address_1: detail[:city],        
+        services: [],        
+        registered_vehicles: [],        
+        collected_fees: 0
+        # ny = DmvDataService.new.ny_dmv_office_locations
+        # 
+        #
 
       )
+      @facilities << facility
+      
     end
   end
 

@@ -41,4 +41,64 @@ RSpec.describe Dmv do
       expect(@dmv.facilities_offering_service('Road Test')).to eq([@facility_2, @facility_3])
     end
   end
+
+
+  let(:co_dmv_office_locations) do
+    [{ 
+        dmv_office: 'DMV Tremont Branch',
+        address_li: '2855 Tremont Place Suite 118 Denver CO 80205',
+        address__1: '2855 Tremont Place Suite 118 Denver CO 80205',
+        phone: '(720) 865-4600',
+        services_p: ['New Drivers License', 'Renew Drivers License', 'Vehicle Registration'],
+        registered_vehicles: ['123456789abcdefgh', '987654321abcdefgh', '1a2b3c4d5e6f'],
+        collected_fees: 0
+      }]
+  end
+
+  it 'can import facility data' do
+    dmv = Dmv.new
+    @facilities = dmv.co_facilities(co_dmv_office_locations)
+
+    expect(@facilities).to be_an(Array)
+    expect(@facilities.length).to be(1)
+
+    facility = dmv.facilities.first
+    
+    expect(facility).to be_an_instance_of(Facility)
+    expect(facility.name).to eq("DMV Tremont Branch")
+    expect(facility.address).to eq("2855 Tremont Place Suite 118 Denver CO 80205")
+    expect(facility.address_1).to eq("2855 Tremont Place Suite 118 Denver CO 80205")
+    expect(facility.phone).to eq("(720) 865-4600")
+    expect(facility.services).to eq(["New Drivers License", "Renew Drivers License", "Vehicle Registration"])
+
+  end
+  let(:ny_office_locations) do
+    [{
+      :office_name=>"LAKE PLACID",
+      :street_address_line_1=>"2693 MAIN STREET",
+      :city=>"LAKE PLACID",
+      }]
+  end
+
+
+
+  it 'can import facility data NY' do
+    dmv = Dmv.new
+    @facilities = dmv.ny_facilities(ny_office_locations)
+
+    expect(@facilities).to be_an(Array)
+    expect(@facilities.length).to be(1)
+
+    facility = dmv.facilities.first
+    
+    expect(facility).to be_an_instance_of(Facility)
+    expect(facility.name).to eq("LAKE PLACID")
+    expect(facility.address).to eq("2693 MAIN STREET")
+    expect(facility.address_1).to eq("LAKE PLACID")
+    expect(facility.phone).to eq(nil)
+    expect(facility.services).to eq([])
+
+
+  end
+
 end

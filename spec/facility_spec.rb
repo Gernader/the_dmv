@@ -131,38 +131,5 @@ RSpec.describe Facility do
 
     end
   end
-  let(:co_dmv_office_locations) do
-    [{ 
-        dmv_office: 'DMV Tremont Branch',
-        address_li: '2855 Tremont Place Suite 118 Denver CO 80205',
-        address__1: '2855 Tremont Place Suite 118 Denver CO 80205',
-        phone: '(720) 865-4600',
-        services_p: ['New Drivers License', 'Renew Drivers License', 'Vehicle Registration'],
-        registered_vehicles: ['123456789abcdefgh', '987654321abcdefgh', '1a2b3c4d5e6f'],
-        collected_fees: 0
-      }]
-  end
-
-  it 'can import facility data' do
-    dmv = Dmv.new
-    @facilities = dmv.co_facilities(co_dmv_office_locations)
-
-    expect(@facilities).to be_an(Array)
-    expect(@facilities.length).to be(1)
-
-    home_office = @facilities.first
-
-
-    expect(home_office).to be_an_instance_of(Facility)
-    expect(home_office.name).to eq("DMV Tremont Branch")
-    expect(home_office.address).to eq("2855 Tremont Place Suite 118 Denver CO 80205")
-    expect(home_office.address1).to eq("2855 Tremont Place Suite 118 Denver CO 80205")
-    expect(home_office.phone).to eq("(720) 865-4600")
-    expect(home_office.services).to eq(["New Drivers License", "Renew Drivers License", "Vehicle Registration"])
-    
-
-
-
-
-  end
+  
 end
