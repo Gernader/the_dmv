@@ -82,7 +82,7 @@ RSpec.describe Dmv do
 
 
 
-  it 'can import facility data NY' do
+  it 'can import facility data ny' do
     dmv = Dmv.new
     @facilities = dmv.ny_facilities(ny_office_locations)
 
@@ -101,4 +101,40 @@ RSpec.describe Dmv do
 
   end
 
+
+
+  let(:mo_office_locations) do
+    [{
+      :name=>"Cameron",
+      :address1=>"588 Lana DR",
+      :city=>"Cameron",
+      :phone=>"(816 632-4838)"
+      }]
+  end
+
+
+
+  it 'can import facility data mo' do
+    dmv = Dmv.new
+    @facilities = dmv.mo_facilities(mo_office_locations)
+
+    expect(@facilities).to be_an(Array)
+    expect(@facilities.length).to be(1)
+
+    facility = dmv.facilities.first
+
+    binding.pry
+    
+    expect(facility).to be_an_instance_of(Facility)
+    expect(facility.name).to eq("Cameron")
+    expect(facility.address).to eq("588 Lana DR")
+    expect(facility.address_1).to eq("Cameron")
+    expect(facility.phone).to eq("(816 632-4838)")
+    expect(facility.services).to eq([])
+
+
+  end
+
 end
+
+

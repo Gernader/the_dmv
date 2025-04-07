@@ -44,14 +44,37 @@ class Dmv
         services: [],        
         registered_vehicles: [],        
         collected_fees: 0
-        # ny = DmvDataService.new.ny_dmv_office_locations
-        # 
-        #
+        # new_york_facilities = DmvDataService.new.ny_dmv_office_locations
+        # dmv = Dmv.new
+        # dmv.ny_facilities(new_york_facilities)
 
       )
       @facilities << facility
       
     end
   end
+
+  def mo_facilities(details)
+    details.each do |detail|
+      facility = Facility.new(
+        name: detail[:name],
+        address: detail[:address1],        
+        phone: detail[:phone] || nil,        
+        address_1: detail[:city],        
+        services: [],        
+        registered_vehicles: [],        
+        collected_fees: 0
+        # missouri_facilities = DmvDataService.new.mo_dmv_office_locations
+        # dmv = Dmv.new
+        # dmv.mo_facilities(missouri_facilities)
+
+      )
+      @facilities << facility
+      
+    end
+  end
+
+
+
 
 end
