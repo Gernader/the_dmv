@@ -49,5 +49,10 @@ This is the starter repo for the BE Mod1 DMV project.
     - factory.create_vehicles               x
 
 ## iteration3
-- 
+- DmvDataService.new.co_dmv_office_locations    x
+    - dmv.co_facilities                         x
+- DmvDataService.new.ny_dmv_office_locations    x
+    - dmv.ny_facilities                         x
+- DmvDataService.new.mo_dmv_office_locations    x
+    - dmv.mo_facilities                         x
 
