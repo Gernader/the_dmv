@@ -97,8 +97,6 @@ RSpec.describe Dmv do
     expect(facility.address_1).to eq("LAKE PLACID")
     expect(facility.phone).to eq(nil)
     expect(facility.services).to eq([])
-
-
   end
 
 
@@ -123,8 +121,6 @@ RSpec.describe Dmv do
 
     facility = dmv.facilities.first
 
-    binding.pry
-    
     expect(facility).to be_an_instance_of(Facility)
     expect(facility.name).to eq("Cameron")
     expect(facility.address).to eq("588 Lana DR")
@@ -132,9 +128,7 @@ RSpec.describe Dmv do
     expect(facility.phone).to eq("(816 632-4838)")
     expect(facility.services).to eq([])
 
-
   end
-
 end
 
 

@@ -58,34 +58,4 @@ class Facility
        registrant.license_data[:renewed] = true
     end   
   end
-
-  # def co_facilities(details)
-    
-  #   details.map do |detail|
-  #     Facility.new(
-  #       name: detail[:dmv_office],
-  #       address: detail[:address_li],
-  #       address_1: detail[:adress__1],
-  #       phone: detail[:phone],
-  #       services: detail[:services_p] || [],
-  #       registered_vehicles: detail[:registered_vehicles] || [],
-  #       collected_fees: 0
-  #     )
-  #   end
-  # end
-
-  # def ny_facilities(details)
-  #   details.map do |detail|
-  #     Facility.new(
-  #       name: detail[:office_name],
-  #       address: detail[:street_addess_line_1],
-  #       address1: detail[:city],
-  #       phone: detail[:phone],
-  #       services: [],
-  #       registered_vehicles: [],
-  #       collected_fees: 0
-  #     )
-  #   end
-  # end
-
 end
