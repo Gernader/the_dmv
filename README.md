@@ -45,6 +45,9 @@ This is the starter repo for the BE Mod1 DMV project.
 
 ## using api
 
+- DmvDataService.new.wa_ev_registrations    x
+    - factory.create_vehicles               x
+
 ## iteration3
 - 
 
