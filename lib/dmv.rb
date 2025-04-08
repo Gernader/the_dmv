@@ -28,7 +28,10 @@ class Dmv
         services: detail[:services_p] || [],
         registered_vehicles: detail[:registered_vehicles] || [],
         collected_fees: 0
-        
+        # colorado_facilities = DmvDataService.new.co_dmv_office_locations
+        # dmv = Dmv.new
+        # dmv.co_facilities(colorado_facilities)
+  
       )
       @facilities << facility
     end
@@ -73,8 +76,4 @@ class Dmv
       
     end
   end
-
-
-
-
 end
